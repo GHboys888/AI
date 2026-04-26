@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ai-nle8utb7t-ghboys888s-projects.vercel.app/sitemap.xml
