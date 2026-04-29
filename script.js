@@ -46,6 +46,25 @@ function filterCards(query, category) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.tool-card').forEach(function(card) {
+    var link = card.querySelector('.visit-btn');
+    var iconDiv = card.querySelector('.tool-icon');
+    if (!link || !iconDiv) return;
+    try {
+      var domain = new URL(link.href).hostname;
+      var img = document.createElement('img');
+      img.src = 'https://www.google.com/s2/favicons?domain=' + domain + '&sz=64';
+      img.alt = domain;
+      img.width = 32;
+      img.height = 32;
+      img.style.borderRadius = '8px';
+      img.onerror = function() { };
+      iconDiv.innerHTML = '';
+      iconDiv.appendChild(img);
+    } catch(e) {}
+  });
+
+
   var input = document.getElementById('searchInput');
   if (input) {
     input.addEventListener('input', function() {
