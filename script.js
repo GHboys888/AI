@@ -14,9 +14,9 @@ document.getElementById('searchInput').addEventListener('input', function() {
 });
 
 // 分类过滤
-function filterCategory(cat) {
+function filterCategory(cat, el) {
   document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
+  el.classList.add('active');
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
   filterCards(q, cat);
 }
