@@ -23,8 +23,8 @@ function filterCards(query, category) {
   cards.forEach(function(card) {
     var catMatch = category === 'all' || card.dataset.category === category;
     var tags = (card.dataset.tags || '').toLowerCase();
-    var title = card.querySelector('h3').textContent.toLowerCase();
-    var desc = card.querySelector('p').textContent.toLowerCase();
+    var title = card.querySelector('h2') ? card.querySelector('h2').textContent.toLowerCase() : '';
+    var desc = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
     var queryMatch = !query || title.includes(query) || desc.includes(query) || tags.includes(query);
 
     if (catMatch && queryMatch) {
